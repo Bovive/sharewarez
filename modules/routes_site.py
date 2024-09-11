@@ -7,10 +7,7 @@ site_bp = Blueprint('site', __name__)
 @site_bp.route('/help')
 def helpfaq():
     print("Route: /help")
-    return render_template('site/help.html')
-
-
-
+    return render_template('site/help.html', title='Help')
 
 
 @site_bp.route('/restricted')

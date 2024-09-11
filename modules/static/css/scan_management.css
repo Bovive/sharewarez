@@ -2,7 +2,7 @@
     flex: 1;
     background-color: #000000;
     padding: 15px;
-    border-radius: 15px;
+    border-radius: 0px;
     color: #ddd;
     margin-top: 15px;
     overflow-x: auto; /* Add horizontal scrolling */
@@ -23,6 +23,12 @@ th, td {
 th {
     background-color: #555; /* Optional: for better header contrast */
     color: #fff;
+}
+
+.flash {
+	margin-left: auto;
+    margin-right: auto;
+	text-align: center;
 }
 
 .avatar {
@@ -80,7 +86,7 @@ th {
     background-color: #1671cd; /* Light gray background on hover, change as needed */
     cursor: pointer; /* Changes the mouse cursor to a pointer to indicate it's clickable */
     padding: 1px;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 
 .scanandbrowse {

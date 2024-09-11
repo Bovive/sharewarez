@@ -55,7 +55,7 @@
     box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.7);
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
     border: 1px solid rgb(49, 49, 49);
-    border-radius: 5px;
+    border-radius: 0px;
     
 }
 
@@ -98,7 +98,7 @@
     background-color: black;
     color: white;
     border: 1px solid white;
-    border-radius: 15px;
+    border-radius: 0px;
     padding: 5px 5px;
     margin-top: 8px;
     max-width: calc(100% - 20px);
@@ -118,7 +118,7 @@
     margin: 0 auto;
     padding: 5px;
     border: 1px solid rgb(49, 49, 49);
-    border-radius: 15px;
+    border-radius: 0px;
     background-color: #2a2c35;
 }
 
@@ -212,7 +212,7 @@
     height: 25px;
     font-size: 0.8rem;
     line-height: 25px;
-    border-radius: 25px;
+    border-radius: 0px;
     background-color: #4a4e69;
     color: #ffffff;
     margin: 2px;

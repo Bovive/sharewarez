@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
-
-
-
-
 {% block content %}
+
 <link rel="stylesheet" href="/static/css/login.css">
 
 <div class="container-login">
-    <div class="content-login">
+    <div class="content-login" style="padding-bottom: 25px;">
         {% if current_user.is_authenticated %}
         <div class="container-builder">Welcome back, {{ current_user.name }}!</div>
         {% else %}
@@ -22,27 +19,27 @@
             {% endif %}
             {% endwith %}
 
-            <div class="container-base">
+            <div class="container-base" style="padding-bottom: 35px;">
                 <div class="container-builder">
                     <img src="{{ url_for('static', filename='newstyle/sharewarez_pirate.png') }}" alt="ShareWareZ Logo" class="login-logo">
 
                 </div>
             </div>
-            <div class="container-content">
+            <div class="container-content" style="padding-bottom: 15px;">
                 <form action="/login" method="post">
                     {{ form.hidden_tag() }}
-                    <label for="username" class="label-large-text">Pirate name:</label><br>
+                    <label for="username" class="form-group">Pirate name:</label><br>
                     <input type="text" class="input-glass" id="username" name="username"><br>
-                    <label for="password" class="label-large-text">Secret Password:</label><br>
+					<br>
+                    <label for="password" class="form-group">Secret Password:</label><br>
                     <input type="password" class="input-glass" id="password" name="password"><br>
                     
                     <div class="container-buttons-login">
-                        <input type="submit" value="Login" class="btn btn-primary button-login">
-                        <a href="/register" class="btn btn-primary button-login">Sign up</a>
-                        <a href="{{ url_for('main.reset_password_request') }}" class="btn btn-danger button-login">Forgot Password?</a>
+                        <input type="submit" value="Login" class="button-glass">
+                        <a href="/register" class="button-glass">Sign up</a>
+                        <a href="{{ url_for('main.reset_password_request') }}" class="btn btn-danger button-glass">Forgot Password?</a>
                     </div>
-                </form>
-                
+                </form>               
             </div>
         </div>
     </div>

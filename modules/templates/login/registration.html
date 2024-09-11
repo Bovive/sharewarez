@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+
 <html>
 <head>
     <title>Registration</title>
@@ -17,34 +18,40 @@
     {% endwith %}
 
     <div class="container-login">
-
-                <div class="content-login">
-                    <img src="{{ url_for('static', filename='newstyle/sharewarez_pirate.png') }}" alt="ShareWareZ Logo" class="login-logo">
-
-                    <h2 style="text-align: center; margin-top: 5px;">Register now!</h1>
+                <div class="content-login" style="padding-bottom: 25px;">
+					<div class="container-base" style="padding-bottom: 15px;">
+						<div class="container-builder">
+							<img src="{{ url_for('static', filename='newstyle/sharewarez_pirate.png') }}" alt="ShareWareZ Logo" class="login-logo">
+						</div>
+					</div>
+                    <h2 style="text-align: center; margin-top: 5px; padding-top: 15px;">Register now!</h1>
                         (You can only register if your email has been whitelisted)
+						<div class="container-content" style="padding-bottom: 15px;">
+							<form action="{{ url_for('main.register', token=request.args.get('token')) }}" method="post">
 
-
-
-                        <form action="{{ url_for('main.register', token=request.args.get('token')) }}" method="post">
-
-                        {{ form.csrf_token }}
-                        <div class="form-group">
-                            {{ form.username.label }}
-                            {{ form.username(class_="input-glass") }}
-                        </div>
-                        <div class="form-group">
-                            {{ form.email.label }}
-                            {{ form.email(class_="input-glass") }}
-                        </div>
-                        <div class="form-group">
-                            {{ form.password.label }}
-                            {{ form.password(class_="input-glass") }}
-                        </div>
-                        <input type="submit" value="Register" class="button-glass">
+							{{ form.csrf_token }}
+							<br>
+							<div class="form-group">
+								{{ form.username.label }}
+								{{ form.username(class_="input-glass") }}
+							</div>
+							<br>
+							<div class="form-group">
+								{{ form.email.label }}
+								{{ form.email(class_="input-glass") }}
+							</div>
+							<br>
+							<div class="form-group">
+								{{ form.password.label }}
+								{{ form.password(class_="input-glass") }}
+							</div>
+							<br>
+							<input type="submit" value="Register" class="button-glass"">
+						</div>
                     </form>
                 </div>
         </div>
     </div>
 </body>
+
 {% endblock %}

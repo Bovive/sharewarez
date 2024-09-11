@@ -1,21 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="glass-panel container py-4">
+<div class="glass-panel container py-4" style="margin-left:20%;">
     <h2 class="mb-3">Invite friends to your pirate crew!</h2>
     <p>Invites expire automatically after 48 hours. If not used by then, the invite is returned to you.</p>
     <div class="alert alert-info" role="alert">
         You have <strong>{{ remaining_invites }}</strong> out of <strong>{{ invite_quota }}</strong> invites left to send.
     </div>
-    
+    <br>
     <div class="mb-5">
         <form action="{{ url_for('main.invites') }}" method="POST" class="row g-3">
             {{ form.hidden_tag() }}
             <div class="col-auto">
-                {{ form.email(class="form-control") }}
+                {{ form.email(class="input-glass") }}
             </div>
-            <div class="col-auto">
-                {{ form.submit(class="btn btn-primary") }}
-            </div>
+			<div>
+				<div class="col-auto">
+					{{ form.submit(class="btn button-glass") }}
+				</div>
+			</div>
         </form>
     </div>
 

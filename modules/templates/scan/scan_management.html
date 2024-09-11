@@ -19,11 +19,11 @@
     {% endwith %}
 </div>
 <!-- Back to Dashboard Button -->
-<div class="container mt-3">
+<div class="back-to-dashboard">
     <a href="{{ url_for('main.admin_dashboard') }}" class="btn btn-lg btn-primary">Back to Dashboard</a>
 </div>
 
-<div class="glass-panel mt-3">
+<div class="glass-panel-main">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -103,7 +103,7 @@
         {% else %}
         <p>You have no Libraries!, go to <a href="{{ url_for('main.libraries') }}">Library Manager</a> and create one.</p>
         {% endif %}
-            <div class="glass-panel-scanfolder container mt-4">
+            <div class="glass-panel-scanfolder">
                 <div class="scanjobs-header-text">
                     <h2>Scan Jobs Management</h2>
                     <p>(You can only have 1 scan job 'Running' at a time!)</p>
@@ -185,8 +185,7 @@
             </div>
 
         <!-- Unmatched Folders Tab -->
-        <div id="unmatchedFolders" class="container tab-pane fade"><br>
-            <div class="glass-panel">
+        <div id="unmatchedFolders" class="glass-panel tab-pane fade"><br>
                 <h3>Resolve Unmatched Folders</h3>
                 <!-- spinner -->
                 <div id="globalSpinner" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">

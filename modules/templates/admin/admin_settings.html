@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="glass-panel">
-    <div class="container mt-3">
+    <div class="back-to-dashboard">
         <a href="{{ url_for('main.admin_dashboard') }}" class="btn btn-lg btn-primary">Back to Dashboard</a>
     </div>
     <h2>Manage SharewareZ Settings</h2>
@@ -45,7 +45,7 @@
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="enableServerStatusFeature">
                 <label class="form-check-label" for="enableServerStatusFeature">
-                    Enable/Disable Server Status Feature
+                    Enable/Disable Show Server Info Feature
                 </label>
             </div>
             <div class="form-check">
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .settingsform-admin {
     background-color: #000; /* Or any color you prefer */
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 0px;
 }
 .settingsform-admin .form-check-label {
     color: #fff; /* Ensuring labels are readable against the dark background */

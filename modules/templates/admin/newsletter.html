@@ -5,7 +5,7 @@
 
 <div class="glass-panel">
             <!-- Back to Dashboard Button -->
-            <div class="container mt-3">
+            <div class="back-to-dashboard">
                 <a href="{{ url_for('main.admin_dashboard') }}" class="btn btn-lg btn-primary">Back to Dashboard</a>
             </div>
     <h1>Newsletter</h1>
@@ -20,22 +20,11 @@
     {% endwith %}
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
-        <div class="mb-3">
-            <label for="subject" class="form-label">{{ form.subject.label }}</label>
-            {{ form.subject(size=32, class="form-control input-glass") }}
-        </div>
-        
-        <div class="mb-3">
-            <label for="content" class="form-label">{{ form.content.label }}</label>
-            {{ form.content(rows=10, cols=32, class="form-control input-glass") }}
-        </div>
-        
-        <div class="mb-3 form-check">
+		<div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="selectAll">
             <label class="form-check-label" for="selectAll">Select All/Select None</label>
         </div>
-        
-        <div class="list-group mb-3">
+		<div class="list-group mb-3">
         {% for user in users %}
             <label class="list-group-item">
                 <input class="form-check-input me-1 userCheckbox" type="checkbox" name="user" value="{{ user.email }}" checked onchange="updateRecipients()">
@@ -43,7 +32,17 @@
             </label>
         {% endfor %}
         </div>
+		<br>
+        <div class="mb-3">
+            <label for="subject" class="form-label">{{ form.subject.label }}</label>
+            {{ form.subject(size=32, class="form-control input-glass-subject") }}
+        </div>
         
+        <div class="mb-3">
+            <label for="content" class="form-label">{{ form.content.label }}</label>
+            {{ form.content(rows=10, cols=32, class="form-control input-glass-content") }}
+        </div>
+
         {{ form.recipients(style="display:none") }}  <!-- hidden input field -->
         <button type="submit" class="btn btn-primary">{{ form.send.label }}</button>
     </form>

@@ -556,6 +556,7 @@ def account_pw():
 
     return render_template('settings/settings_password.html', title='Change Password', form=form, user=user)
 
+
 @bp.route('/settings_panel', methods=['GET', 'POST'])
 @login_required
 @admin_required
@@ -2398,7 +2399,8 @@ def download_game(game_uuid):
 @bp.route('/discover')
 @login_required
 def discover():
-    def fetch_game_details(games_query, limit=5):
+    def fetch_game_details(games_query, limit=10):
+        # Could the limit be the (browser width x 80%) / cover width? Probably would need set cover sizes.
         games = games_query.limit(limit).all()
         game_details = []
         for game in games:

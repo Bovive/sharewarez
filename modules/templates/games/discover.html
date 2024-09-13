@@ -20,36 +20,47 @@
         {% endwith %}
     </div>
     <div class="glass-panel">
-
         <h1 style="text-align: center;">Discover Loot</h1>
-        
+ 
             <div class="game-discovery-container" id="gamesContainer">
                 <section>
+				<center>
+				<table class="table-discover">
                     <div class="discover-category-label">
                         Libraries
                     </div>
                     <div class="libraries-list">
-                        {% for library in libraries %}
-                            <div class="library-item">
-                                <!-- Wrap the image and library name in an <a> tag -->
-                                <a href="{{ url_for('main.library', library_uuid=library['uuid']) }}" class="library-link">
-                                    <img src="{{ library['image_url'] }}" alt="{{ library['name'] }}" class="library-cover">
-                                    <span class="library-name">{{ library['name'] }}</span>
-                                </a>
-                            </div>
-                        {% endfor %}
+					
+						<tr>
+							{% for library in libraries %}
+							<th>
+								<div class="library-item">
+									<!-- Wrap the image and library name in an <a> tag -->
+									<a href="{{ url_for('main.library', library_uuid=library['uuid']) }}" class="library-link">
+										<img src="{{ library['image_url'] }}" alt="{{ library['name'] }}" class="library-cover">
+										<span class="library-name">{{ library['name'] }}</span>
+									</a>
+								</div>
+							</th>
+							{% endfor %}
+						</tr>
+
                     </div>
+					</table>
+					</center>
                 </section>
-                
-                
-                
+				<br>
+				<br>				
                 <section>
+				<table class="table-discover">
                     <div class="discover-category-label">
                         Latest Games Added
                     </div>
                     {% if latest_games %}
                     <div class="game-row">
+					<tr>
                         {% for game in latest_games %}
+						<th>
                         <div class="game-card-container">
                             <div class="game-card" onmouseover="showDetails(this, '{{ game.uuid }}')" onmouseout="hideDetails()" data-name="{{ game.name }}" data-size="{{ game.size }}" data-genres="{{ game.genres|join(', ') }}">
                                 {% with game_uuid=game.uuid, game_url=game.url %}
@@ -70,22 +81,32 @@
                             </div>
                         
                         </div>
+						</th>
                         {% endfor %}
+						</tr>
                     </div>
                     {% else %}
-                    <p>No latest games added yet.</p>
+						<tr>
+							<br>
+							<p>No latest games added yet.</p>
+						</tr>
                     {% endif %}
+					</table>
                 </section>
-
+				<br>
+				<br>
                 <section>
+				<table class="table-discover">
                     <div class="discover-category-label">
                         Most Downloaded Games
                     </div>
                     {% if most_downloaded_games %}
                         <div class="game-row">
+						<tr>
                             {% for game in most_downloaded_games %}
+							<th>
                                 <div class="game-card-container">
-                                    <div class="game-card" onmouseover="showDetails(this, '{{ game.uuid }}')" onmouseout="hideDetails()" data-name="{{ game.name }}" data-size="{{ game.size }}" data-genres="{{ game.genres|join(', ') }}">
+                                    <div class="game-card" onmouseover="showDetails(this, '{{ game.uuid }}', 'most-downloaded')" onmouseout="hideDetails()" data-name="{{ game.name }}" data-size="{{ game.size }}" data-genres="{{ game.genres|join(', ') }}">
                                         
                                         {% with game_uuid=game.uuid, game_url=game.url %}
                                      
@@ -99,27 +120,38 @@
                                                 <img src="{{ url_for('static', filename='newstyle/default_cover.jpg') }}" alt="Default Cover Image" class="game-cover">
                                             </a>
                                         {% endif %}
-                                        <div id="details-{{ game.uuid }}" class="popup-game-details hidden">
+                                        <div id="details-{{ game.uuid }}-most-downloaded" class="popup-game-details hidden">
                                             <!-- Details and screenshots will be injected here by JavaScript -->
                                         </div>
                                     </div>
                                 </div>
+								</th>
                             {% endfor %}
+							</tr>
                         </div>
                     {% else %}
+					<tr>
+						<br>
                         <p>No most downloaded games yet.</p>
+					</tr>
                     {% endif %}
+					</table>
                 </section>
-                
+				<br>
+				<br>
                 <section>
+				<table class="table-discover">
                     <div class="discover-category-label">
                         Highest Rated Games
                     </div>
+
                     {% if highest_rated_games %}
+					<tr>
                         <div class="game-row">
                             {% for game in highest_rated_games %}
+							<th>
                                 <div class="game-card-container">
-                                    <div class="game-card" onmouseover="showDetails(this, '{{ game.uuid }}')" onmouseout="hideDetails()" data-name="{{ game.name }}" data-size="{{ game.size }}" data-genres="{{ game.genres|join(', ') }}">
+                                    <div class="game-card" onmouseover="showDetails(this, '{{ game.uuid }}', 'highest-rated')" onmouseout="hideDetails()" data-name="{{ game.name }}" data-size="{{ game.size }}" data-genres="{{ game.genres|join(', ') }}">
                                         {% with game_uuid=game.uuid, game_url=game.url %}
                                      
                                         {% endwith %}
@@ -132,18 +164,25 @@
                                                 <img src="{{ url_for('static', filename='newstyle/default_cover.jpg') }}" alt="Default Cover Image" class="game-cover">
                                             </a>
                                         {% endif %}
-                                        <div id="details-{{ game.uuid }}" class="popup-game-details hidden">
+                                        <div id="details-{{ game.uuid }}-highest-rated" class="popup-game-details hidden">
                                             <!-- Details and screenshots will be injected here by JavaScript -->
                                         </div>
                                     </div>
                                 </div>
-                            {% endfor %}
+							</th>
+                            {% endfor %}							
                         </div>
+					</tr>
                     {% else %}
-                        <p>No highest rated games yet.</p>
+						<tr>
+							<br>
+							<p>No highest rated games yet.</p>
+						</tr>
                     {% endif %}
+				</table>
                 </section>
-                        </div>
+				<br>
+                    </div>
     </div>
 </body>
 {% endblock %}
